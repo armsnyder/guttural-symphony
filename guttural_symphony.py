@@ -55,7 +55,7 @@ def get_peaks(wav_array, spacing, min_dist):
     for peak in peaks:
         while wav_array[peak] > 0 and peak > 0:
             peak -= 1
-        peak_starts.append(peak)
+        peak_starts.append(peak+1)
     return peak_starts
 
 
@@ -126,7 +126,7 @@ def write_wav(filename, out, sr):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 3:
         print 'Usage: guttural_symphony.py <path-to-sound-file-input> <path-to-sound-file-output> ' \
               '[average-sample-distance] [min-silence-samples] [max-silence-samples]'
     else:
